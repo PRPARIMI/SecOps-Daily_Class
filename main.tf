@@ -6,11 +6,13 @@ provider "aws" {
 }
 terraform {
   backend "s3" {
-    bucket = "workspacesbucket03"
-    key    = "workspace.statefile"
-    region = "us-east-1"
+    bucket         = "workspacesbucket03"
+    key            = "workspace.statefile"
+    region         = "us-east-1"
+    # dynamodb_table = "dynamodb-state-locking"
   }
 }
+
 
 resource "aws_vpc" "default" {
   cidr_block           = var.vpc_cidr
